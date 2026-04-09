@@ -1,0 +1,359 @@
+/* ── Header ──────────────────────────────────────────── */
+.app-header {
+  background: var(--header-bg);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.header-brand h1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.header-nav {
+  display: flex;
+  gap: 6px;
+}
+
+.header-nav a {
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.15s ease;
+}
+
+.header-nav a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.header-nav a.active {
+  color: #fff;
+  background: var(--primary);
+}
+
+/* ── Main ────────────────────────────────────────────── */
+.app-main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 24px 28px 48px;
+}
+
+/* ── Controls bar ────────────────────────────────────── */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.period-selector {
+  display: flex;
+  gap: 3px;
+  background: var(--card);
+  padding: 3px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.period-selector button {
+  padding: 7px 15px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+.period-selector button:hover {
+  background: #f5f5f5;
+}
+
+.period-selector button.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.controls select {
+  padding: 7px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+  font-size: 0.92rem;
+  cursor: pointer;
+  min-width: 210px;
+  color: var(--text);
+}
+
+.refresh-btn {
+  padding: 7px 18px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.refresh-btn:hover {
+  background: var(--primary-dark);
+}
+
+.refresh-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.last-refresh {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+/* ── Metric sections ─────────────────────────────────── */
+.metrics-section {
+  margin-bottom: 32px;
+}
+
+.metrics-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.metric-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s ease;
+}
+
+.metric-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 6px;
+}
+
+.metric-value {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* ── Tables ──────────────────────────────────────────── */
+.table-container {
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow-x: auto;
+  box-shadow: var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+thead {
+  background: #f8f9fa;
+}
+
+th {
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+th.sortable:hover {
+  color: var(--primary);
+}
+
+td {
+  padding: 11px 16px;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.rank {
+  font-weight: 800;
+  color: var(--text-secondary);
+  width: 40px;
+}
+
+td.currency {
+  font-weight: 700;
+  color: var(--green);
+}
+
+/* ── Agent Config ────────────────────────────────────── */
+.agent-config h2 {
+  font-size: 1.35rem;
+  margin-bottom: 6px;
+}
+
+.config-note {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.rate-input {
+  width: 72px;
+  padding: 5px 8px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-align: right;
+}
+
+.rate-input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.15);
+}
+
+.rate-suffix {
+  margin-left: 3px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.save-btn {
+  padding: 5px 16px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.save-btn:hover {
+  background: var(--primary-dark);
+}
+
+.save-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.save-btn.saved {
+  background: var(--green);
+}
+
+/* ── Leaderboard ─────────────────────────────────────── */
+.leaderboard .controls {
+  margin-bottom: 20px;
+}
+
+/* ── Utilities ───────────────────────────────────────── */
+.loading {
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.error {
+  text-align: center;
+  padding: 64px 24px;
+  color: var(--red);
+  font-size: 1rem;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+  animation: loading-slide 1.2s ease-in-out infinite;
+  z-index: 200;
+}
+
+@keyframes loading-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ── Responsive ──────────────────────────────────────── */
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    height: auto;
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .app-main {
+    padding: 16px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+
+  .metric-value {
+    font-size: 1.3rem;
+  }
+}
