@@ -1,41 +1,50 @@
 # PIC KPI Sales Dashboard
 
-Activity-based KPI dashboard pulling data from Close CRM's "PIC KPI Tracker" report. Built with Flask (backend) and React + Vite (frontend).
+Activity-based KPI dashboard pulling data from Close CRM's "PIC KPI Tracker" report. React + Vite frontend with Netlify Functions (serverless) for the API.
 
-## Quick Start
+## Deploy to Netlify
 
-### 1. Backend
+1. Push this repo to GitHub
+2. Connect the repo in [Netlify](https://app.netlify.com)
+3. Set the environment variable in **Site settings > Environment variables**:
+   - `CLOSE_API_KEY` = your Close API key
+4. Deploy — Netlify auto-detects `netlify.toml`, builds the frontend, and deploys the serverless functions
+
+Build settings are pre-configured in `netlify.toml`:
+- **Build command**: `cd frontend && npm install && npm run build`
+- **Publish directory**: `frontend/dist`
+- **Functions**: `netlify/functions` (auto-detected)
+
+Agent commission configs and deal equity overrides are persisted via Netlify Blobs (built-in KV storage).
+
+## Local Development
+
+### Option A — Netlify CLI (recommended)
 
 ```bash
-cd backend
-pip install -r requirements.txt
-
-# Create .env with your Close API key
-echo "CLOSE_API_KEY=your_key_here" > .env
-
-python app.py
+npm install
+cd frontend && npm install && cd ..
+npx netlify dev
 ```
 
-The API runs at `http://localhost:5000`.
+Runs everything on one port with functions and frontend together.
 
-### 2. Frontend
+### Option B — Flask + Vite (standalone)
 
 ```bash
+# Terminal 1 — Flask backend
+cd backend
+pip install -r requirements.txt
+echo "CLOSE_API_KEY=your_key_here" > .env
+python app.py
+
+# Terminal 2 — Vite dev server (proxies /api to Flask)
 cd frontend
 npm install
 npm run dev
 ```
 
-Opens at `http://localhost:3000` — API calls proxy to the Flask backend.
-
-### Production Build
-
-```bash
-cd frontend
-npm run build
-```
-
-Serve the `frontend/dist/` directory with any static file server, pointing API calls at the Flask backend.
+Flask API at `http://localhost:5000`, frontend at `http://localhost:3000`.
 
 ## Features
 
